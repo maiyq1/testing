@@ -14,6 +14,8 @@ public class StudentServiceImpl implements StudentService {
     */
     @Override
     public Student buscarPorId(int id) {
-        return studentRepository.findById(id);
+        Student student = studentRepository.findById(id);
+        student.setId(student.getId()*2);
+        return student;
     }
 }

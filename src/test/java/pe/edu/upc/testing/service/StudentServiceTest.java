@@ -22,12 +22,12 @@ public class StudentServiceTest {
     @Test
     public void testBuscarPorId(){
         //Preparar: Tipo de dato esperado
-        Student espero = new Student(1, "Paterno", "Nombre");
+        Student espero = new Student(2, "Paterno", "Nombre");
         //Mock: Simular
-        Mockito.when(studentRepository.findById(Mockito.anyInt()))
+        Mockito.when(studentRepository.findById(Mockito.anyInt())) //Lo interno
                 .thenReturn(new Student(1, "Paterno", "Nombre"));
         //Act
-        Student recibo = studentRepository.findById(1);
+        Student recibo = studentService.buscarPorId(1);
 
         //Afirmar
         Assertions.assertEquals(espero.getId(), recibo.getId());
